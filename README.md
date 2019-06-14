@@ -1,12 +1,32 @@
-### **Welcome to the HYG star database archive.  The most current version of the database will always be found here. 
+### **Welcome to the HYG star database archive.  The most current version of the database will always be found here.
 
 #### License and Versions:
 
 This data set is licensed by a Creative Commons Attribution-ShareAlike license. For more details, read the Creative Commons page (https://creativecommons.org/licenses/by-sa/2.5/).
- 
+
 For additional background details, and older versions of the database, visit  http://www.astronexus.com/hyg.
 
 For the most current version of the applications using this database, visit http://www.astronexus.com/endeavour. **
+
+### Additions to this version of the database
+This version of the HYG Database has the following information added:
+* names added from the International Astronomical Union (https://www.iau.org/public/themes/naming_stars/) in the 'proper' field (specifically, I'm using a formatted version from https://github.com/mirandadam/iau-starnames)
+
+This version can be found at hygdata_v3-ext.csv
+
+To build this from hygdata_v3.csv, use:
+npm install
+npm run build
+npm run collate
+
+#### Missing Star Names
+The following stars could not be found in the database:
+* Alrescha (HR 596)
+* Izar (HR 5506)
+* Lich (PSR B1257+12)
+* Tegmine (HR 3208)
+
+### Original Database
 
 #### Database field descriptions:
 
@@ -31,7 +51,7 @@ Fields in the database:
 4. hr: The star's ID in the Harvard Revised catalog, which is the same as its number in the Yale Bright Star Catalog.
 5. gl: The star's ID in the third edition of the Gliese Catalog of Nearby Stars.
 6. bf: The Bayer / Flamsteed designation, primarily from the Fifth Edition of the Yale Bright Star Catalog. This is a combination of the two designations. The Flamsteed number, if present, is given first; then a three-letter abbreviation for the Bayer Greek letter; the Bayer superscript number, if present; and finally, the three-letter constellation abbreviation. Thus Alpha Andromedae has the field value "21Alp And", and Kappa1 Sculptoris (no Flamsteed number) has "Kap1Scl".
-7. ra, dec: The star's right ascension and declination, for epoch and equinox 2000.0. 
+7. ra, dec: The star's right ascension and declination, for epoch and equinox 2000.0.
 8. proper: A common name for the star, such as "Barnard's Star" or "Sirius". I have taken these names primarily from the Hipparcos project's web site, which lists representative names for the 150 brightest stars and many of the 150 closest stars. I have added a few names to this list. Most of the additions are designations from catalogs mostly now forgotten (e.g., Lalande, Groombridge, and Gould ["G."]) except for certain nearby stars which are still best known by these designations.
 9. dist: The star's distance in parsecs, the most common unit in astrometry. To convert parsecs to light years, multiply by 3.262. A value >= 100000 indicates missing or dubious (e.g., negative) parallax data in Hipparcos.
 10. pmra, pmdec:  The star's proper motion in right ascension and declination, in milliarcseconds per year.  
@@ -57,7 +77,7 @@ There are approximately 220K objects, mostly galaxies, but also all known NGC an
 
 Fields in the database:
 
-1. ra, dec: The object's right ascension and declination, for epoch 2000.0 and equinox 2000.0. 
+1. ra, dec: The object's right ascension and declination, for epoch 2000.0 and equinox 2000.0.
 2. type:  The object's type, as in the Historically Corrected NGC (see "dso\_source").  A full list of types is in
 http://www.ngcicproject.org/public_HCNGC/The_HCNGC_intro.pdf, p. 19.  This is the canonical list of types for objects
 in this catalog, regardless of source.
@@ -82,7 +102,7 @@ Catalogs represented in the database:
 * Col:  Collinder (open clusters and associations)
 * PK:  Perek + Kohoutek (planetary nebulas)
 * PGC:  Principal Galaxy Catalog  
-* UGC:  Uppsala Galaxy Catalog 
+* UGC:  Uppsala Galaxy Catalog
 * ESO:  European Southern Observatory Catalog (galaxies)
 * Ter:  Terzian (globular clusters)
 * Pal:  Palomar (globular clusters)
@@ -105,7 +125,7 @@ These are still available, but are no longer current or being actively updated, 
 10. AbsMag: The star's absolute visual magnitude (its apparent magnitude from a distance of 10 parsecs).
 11. Spectrum: The star's spectral type, if known.
 12. ColorIndex: The star's color index (blue magnitude - visual magnitude), where known.
-                                                       
+
 ##### hygxyz.csv: the fields in hygfull, plus some additional fields useful for mapping tools:
 
 13. X,Y,Z: The Cartesian coordinates of the star, in a system based on the equatorial coordinates as seen from Earth. +X is in the direction of the vernal equinox (at epoch 2000), +Z towards the north celestial pole, and +Y in the direction of R.A. 6 hours, declination 0 degrees.
